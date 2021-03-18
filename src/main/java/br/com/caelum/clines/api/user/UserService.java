@@ -1,5 +1,8 @@
 package br.com.caelum.clines.api.user;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import br.com.caelum.clines.shared.exceptions.ResourceNotFoundException;
@@ -19,5 +22,10 @@ public class UserService {
 
         return viewMapper.map(user);
     }
+
+
+	public List<UserView> listAllUser() {
+		return repository.findAll().stream().map(viewMapper::map).collect(Collectors.toList());
+	}
 
 }

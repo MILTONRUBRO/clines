@@ -1,5 +1,7 @@
 package br.com.caelum.clines.api.user;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,12 @@ public class UserController {
 	private final UserService service;
 	
     @GetMapping("{id}")
-    UserView show(@PathVariable Long id) {
+    public UserView show(@PathVariable Long id) {
         return service.showUserById(id);
+    }
+    
+    @GetMapping
+    public List<UserView> list(){
+    	return service.listAllUser();
     }
 }
