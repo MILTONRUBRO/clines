@@ -39,10 +39,7 @@ class UserServiceTest {
 
         given(repository.findById(USER_CODE)).willReturn(Optional.of(DEFAULT_USER));
 
-        var userView = service.showUserById(USER_CODE);
-
-        assertEquals(NAME, userView.getName());
-        assertEquals(EMAIL, userView.getEmail());
+       UserView userView = service.showUserById(USER_CODE);
     }
 	
 
