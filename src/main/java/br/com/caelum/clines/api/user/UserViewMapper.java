@@ -7,7 +7,7 @@ public class UserViewMapper implements Mapper<User, UserView>{
 
 	@Override
 	public UserView map(User source) {
-		return new User(source.getName(), source.getEmail(), source.getPassword());
+		return new UserView(source.getName(), source.getEmail(), source.getPassword());
 	}
 
 }
